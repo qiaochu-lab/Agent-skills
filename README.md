@@ -45,6 +45,50 @@
 
 ---
 
+## ✨ 使用案例演示 (Demo)
+
+### 场景：执行自然语言遥感查询
+
+只需在终端中向大语言模型（如 Claude）输入自然语言指令，Agent 便会自动解析意图并执行遥感渲染任务。
+
+```console
+> 生成北京 1990-2024 的 城市扩张动画
+
+● Skill(geemap-urban-analysis)
+  └ Successfully loaded skill
+
+● 我来为你生成北京 1990-2024 年的城市扩张动画。
+
+● Bash(cd ~/.claude/skills/geemap-urban-analysis && python scripts/city_timelapse.py "Beijing" 1990 2024 /output/Beijing_timelapse.gif)
+  └ ... (Authenticating and executing on Google Earth Engine) ...
+
+● 北京城市扩张动画已成功生成！
+
+输出文件：.../output/Beijing_timelapse_1990_2024.gif
+文件大小：4.3 MB
+
+说明：
+- 时间跨度：1990-2024年（35年）
+- 数据源：Landsat 卫星影像集合
+- 显示方式：NIR-Red-Green 假彩色合成
+  - 亮色区域 = 城市建成区
+  - 绿色区域 = 植被/农田
+  - 深色区域 = 水体
+
+观察要点：
+- 北京城市扩张从中心向外辐射
+- 五环、六环沿线扩张尤为明显
+- 通州副中心、大兴新机场区域在近年增长显著
+```
+
+### 结果输出：北京 35 年城市扩张动图
+
+Agent 最终会自动生成并保存高清的动态变化过程，供业务人员直接查阅体验：
+
+![北京城市扩张 1990-2024](./assets/Beijing_timelapse_1990_2024.gif)
+
+---
+
 ## 🛠 安装与使用
 
 1. **克隆此仓库**：

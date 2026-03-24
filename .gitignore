@@ -75,3 +75,6 @@ evolution.json
 *.png
 output/
 outputs/
+
+!assets/
+!assets/*.gif
