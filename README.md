@@ -13,7 +13,18 @@
 
 ## ⭐️ 核心技能介绍
 
-### 1. geemap-urban-analysis (地理空间分析 Agent)
+### 1. skill-creator (技能创造器)
+
+**一个“教 Agent 怎么编写 Agent 工具”的元技能。**
+
+`skill-creator` 编纂了开发高质量提示词和关联执行脚本的规范，为撰写符合格式的 `.claude/skills` 提供了一套标准化的脚手架机制。
+
+- **创建工作流**：支持一键运行 `init_skill.py` 搭建标准目录结构（含 `SKILL.md`, `scripts/`, `references/`, `assets/`）。
+- **结构验证**：通过内置的 `quick_validate.py` 在运行时校验 `SKILL.md` 的 YAML 前置数据、必填项与格式字符长度限制。
+
+---
+
+### 2. geemap-urban-analysis (地理空间分析 Agent)
 
 **这是一个将复杂的遥感代码封装为“大模型可用工具（Tool Calling）”的典型最佳实践项目。**
 
@@ -31,17 +42,6 @@
 - **能力解耦与封装**：从 `geemap` 庞大的复杂 API 中提炼出目标明确的颗粒度脚本（如 `city_timelapse.py`），去除了不必要的参数干扰。
 - **自然语言到空间呈现**：Agent 负责从对话中提取空间参数（时间范围、地理坐标包围盒），执行脚本层负责调度资源与云端渲染，实现了真正意义上的端到端“零代码遥感可视化”。
 - **自动化格式校验**：通过严格的工具输出结构控制与异常处理，保障了请求大体量卫星图期间的稳定性。
-
----
-
-### 2. skill-creator (技能创造器)
-
-**一个“教 Agent 怎么编写 Agent 工具”的元技能。**
-
-`skill-creator` 编纂了开发高质量提示词和关联执行脚本的规范，为撰写符合格式的 `.claude/skills` 提供了一套标准化的脚手架机制。
-
-- **创建工作流**：支持一键运行 `init_skill.py` 搭建标准目录结构（含 `SKILL.md`, `scripts/`, `references/`, `assets/`）。
-- **结构验证**：通过内置的 `quick_validate.py` 在运行时校验 `SKILL.md` 的 YAML 前置数据、必填项与格式字符长度限制。
 
 ---
 
